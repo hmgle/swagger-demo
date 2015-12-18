@@ -1,0 +1,17 @@
+= swagger-demo
+
+Swagger demo.
+
+== How to run
+
+----
+go get github.com/yvasiyarov/swagger
+go get github.com/Unknwon/bra
+go get -d github.com/hmgle/swagger-demo
+cd $GOPATH/src/github.com/hmgle/swagger-demo
+bra run && firefox http://127.0.0.1:3333/docs/
+----
+
+== License
+
+Apache Version 2.0
