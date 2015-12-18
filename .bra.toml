@@ -1,0 +1,22 @@
+[run]
+init_cmds = [
+	["swagger", "-apiPackage=github.com/hmgle/swagger-demo/src", "-mainApiFile=github.com/hmgle/swagger-demo/src/main.go", "-output=./src"],
+	["go", "build", "-o", "swagger-demo", "./src"],
+	["./swagger-demo"]
+]									# Commands run in start
+watch_all = true					# Watch all sub-directories
+watch_dirs = ["$WORKDIR/src"]		# Directories to watch
+watch_exts = [".go"]				# Extensions to watch
+ignore = [".git", "node_modules"] 	# Directories to exclude from watching
+ignore_files = ["docs.go"]					# Regexps for ignoring specific notifies
+build_delay = 1500					# Minimal interval to Trigger build event
+interrupt_timout = 15				# Time to wait until force kill
+cmds = [
+	["swagger", "-apiPackage=github.com/hmgle/swagger-demo/src", "-mainApiFile=github.com/hmgle/swagger-demo/src/main.go", "-output=./src"],
+	["go", "build", "-o", "swagger-demo", "./src"],
+	["./swagger-demo"]
+]									# Commands to run
+
+[sync]
+listen_addr = ":5050"
+remote_addr = ":5050"
