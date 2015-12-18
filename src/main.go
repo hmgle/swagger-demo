@@ -18,7 +18,7 @@ func main() {
 	e := echo.New()
 
 	e.Use(cors())
-	// e.Use(mw.Logger())
+	e.Use(mw.Logger())
 	e.Use(mw.Recover())
 
 	e.Get("/", apiIndex)
@@ -47,6 +47,9 @@ func cors() echo.MiddlewareFunc {
 	return func(h echo.HandlerFunc) echo.HandlerFunc {
 		return func(c *echo.Context) error {
 			c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+			c.Response().Header().Set("Access-Control-Allow-Credentials", "true")
+			c.Response().Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT, DELETE")
+			c.Response().Header().Set("Access-Control-Max-Age", "1728000")
 			return h(c)
 		}
 	}
