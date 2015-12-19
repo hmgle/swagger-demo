@@ -17,15 +17,14 @@ import (
 func main() {
 	e := echo.New()
 
-	e.Use(cors())
-	e.Use(mw.Logger())
-	e.Use(mw.Recover())
+	e.Use(cors(), mw.Logger(), mw.Recover())
 
 	e.Get("/", apiIndex)
 	e.Get("/apis/miao", api.Miao)
 
 	// api server: http://127.0.0.1:3333/docs/
 	e.Static("/docs/", "./swagger-1")
+	e.Get("/docs", http.RedirectHandler("/docs/", 301))
 	e.Get("/apis", func(c *echo.Context) error {
 		return c.String(200, resourceListingJson)
 	})
