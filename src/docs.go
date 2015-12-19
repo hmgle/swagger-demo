@@ -5,6 +5,7 @@ package main
 var resourceListingJson = `{
     "apiVersion": "1.0.0",
     "swaggerVersion": "1.2",
+    "basePath": "/apis",
     "apis": [
         {
             "path": "/Cat",
@@ -20,7 +21,7 @@ var resourceListingJson = `{
 var apiDescriptionsJson = map[string]string{"Cat":`{
     "apiVersion": "1.0.0",
     "swaggerVersion": "1.2",
-    "basePath": "",
+    "basePath": "/apis",
     "resourcePath": "/Cat",
     "apis": [
         {

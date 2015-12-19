@@ -2,7 +2,7 @@
 // @APITitle API
 // @APIDescription API test
 // @Contact test@test.com
-// @BasePath
+// @BasePath /apis
 package main
 
 import (
@@ -23,7 +23,7 @@ func main() {
 	e.Get("/apis/miao", api.Miao)
 
 	// api server: http://127.0.0.1:3333/docs/
-	e.Static("/docs/", "./swagger-1")
+	e.Static("/docs/", "./swagger-ui")
 	e.Get("/docs", http.RedirectHandler("/docs/", 301))
 	e.Get("/apis", func(c *echo.Context) error {
 		return c.String(200, resourceListingJson)
