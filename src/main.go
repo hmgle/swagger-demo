@@ -21,6 +21,7 @@ func main() {
 
 	e.Get("/", apiIndex)
 	e.Get("/apis/miao", api.Miao)
+	e.Post("/apis/set", api.Set)
 
 	// api server: http://127.0.0.1:3333/docs/
 	e.Static("/docs/", "./swagger-ui")

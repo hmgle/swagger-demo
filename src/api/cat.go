@@ -27,3 +27,24 @@ func Miao(c *echo.Context) error {
 	}
 	return c.String(http.StatusOK, miao.String())
 }
+
+type Cat struct {
+	Name string
+	Age  int
+}
+
+var Mao Cat
+
+// @Title       api.Set
+// @Description Set  Mao
+// @Resource    Cat
+// @Accept      json
+// @Param       cat  body     Cat    true "Wat cat"
+// @Success     200  {string} string "返回"
+// @Router      /set [post]
+func Set(c *echo.Context) error {
+	if err := c.Bind(&Mao); err != nil {
+		return err
+	}
+	return c.JSON(http.StatusCreated, &Mao)
+}
