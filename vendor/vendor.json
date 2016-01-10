@@ -1,36 +1,5 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [
-		{
-			"path": "github.com/bradfitz/http2",
-			"revision": "f8202bc903bda493ebba4aa54922d78430c2c42f",
-			"revisionTime": "2015-05-09T11:24:58-07:00"
-		},
-		{
-			"path": "github.com/bradfitz/http2/hpack",
-			"revision": "f8202bc903bda493ebba4aa54922d78430c2c42f",
-			"revisionTime": "2015-05-09T11:24:58-07:00"
-		},
-		{
-			"path": "github.com/labstack/echo",
-			"revision": "ba4a01049d0773acb2890d3d8cc6833a71cd0865",
-			"revisionTime": "2015-10-11T14:15:07-07:00"
-		},
-		{
-			"path": "github.com/labstack/echo/middleware",
-			"revision": "ba4a01049d0773acb2890d3d8cc6833a71cd0865",
-			"revisionTime": "2015-10-11T14:15:07-07:00"
-		},
-		{
-			"path": "github.com/labstack/gommon/color",
-			"revision": "2ebf6acaf35a9c52c984656ba9f738080aaf097d",
-			"revisionTime": "2015-11-30T13:44:45-08:00"
-		},
-		{
-			"path": "golang.org/x/net/websocket",
-			"revision": "28273ec927bee3bea305f112fc28ceee575ea893",
-			"revisionTime": "2015-12-17T17:42:59Z"
-		}
-	]
+	"package": []
 }
