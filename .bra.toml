@@ -1,6 +1,6 @@
 [run]
 init_cmds = [
-	["swagger", "-apiPackage=github.com/hmgle/swagger-demo/src", "-mainApiFile=github.com/hmgle/swagger-demo/src/main.go", "-output=./src"],
+	["swagger", "-apiPackage=github.com/hmgle/swagger-demo/src/api", "-mainApiFile=github.com/hmgle/swagger-demo/src/main.go", "-output=./src"],
 	["go", "build", "-o", "swagger-demo", "./src"],
 	["./swagger-demo"]
 ]									# Commands run in start

@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/labstack/echo"
+	ren "github.com/hmgle/swagger-demo/src/render"
 )
 
 // @Title       api.Miao
@@ -16,35 +16,15 @@ import (
 // @Param       count query    int    false "喵几声?"
 // @Success     200   {string} string "返回"
 // @Router      /miao [get]
-func Miao(c *echo.Context) error {
+func Miao(w http.ResponseWriter, r *http.Request) {
 	miao := bytes.Buffer{}
-	count, err := strconv.Atoi(c.Query("count"))
+	count, err := strconv.Atoi(r.URL.Query().Get("count"))
 	if err != nil {
-		return c.String(http.StatusOK, "喵...")
+		ren.Text(w, http.StatusOK, "喵...")
+		return
 	}
 	for i := 0; i < count; i++ {
 		miao.WriteString("喵~")
 	}
-	return c.String(http.StatusOK, miao.String())
-}
-
-type Cat struct {
-	Name string
-	Age  int
-}
-
-var Mao Cat
-
-// @Title       api.Set
-// @Description Set  Mao
-// @Resource    Cat
-// @Accept      json
-// @Param       cat  body     Cat    true "Wat cat"
-// @Success     200  {string} string "返回"
-// @Router      /set [post]
-func Set(c *echo.Context) error {
-	if err := c.Bind(&Mao); err != nil {
-		return err
-	}
-	return c.JSON(http.StatusCreated, &Mao)
+	ren.Text(w, http.StatusOK, miao.String())
 }
